@@ -25,6 +25,10 @@ app_utils.set_page_header("PDF Description")
 app_utils.draw_side_bar()
 app_utils.show_used_tokens()
 
+if st.button("Test connection"):
+    core.test_connection()
+    st.success("Connection successful")
+
 with st.form("my-form", clear_on_submit=True, border=True):
     document = st.file_uploader(
         "Drag PDF documents here (PDF format)",

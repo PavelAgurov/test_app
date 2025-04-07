@@ -87,3 +87,21 @@ class Core:
             errors.extend(description.errors)
             
         return DescriptionResponseListData(description_list, used_tokens, used_cost, errors)
+
+    def clear_llm_cache(self):
+        """
+            Clear LLM cache
+        """
+        llm_core = self.get_default_llm_core()
+        llm_core.clear_cache()
+
+
+    def test_connection(self) -> list[str]:
+        """
+            Test connection to LLM service
+        """
+        result = []
+        for i in range(3):
+            test_index = 10 / (i-2)
+            result.append(f"Test {i}: {test_index}")
+        return result
